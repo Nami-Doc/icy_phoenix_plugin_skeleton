@@ -14,10 +14,10 @@ if (!defined('IN_ICYPHOENIX'))
 }
 
 $page = isset($_GET['page']) ? $_GET['page'] : '';
-if (strpos($page, '/') !== false || !file_exists(CANS_PAGES_PATH . $page . '.' . PHP_EXT))
+if (strpos($page, '/') !== false || !file_exists(MYPLUGIN_PAGES_PATH . $page . '.' . PHP_EXT))
 	$page = 'home';
 
 $template_file = "{$page}_body.tpl";
-include CANS_PAGES_PATH . $page . '.' . PHP_EXT;
+include MYPLUGIN_PAGES_PATH . $page . '.' . PHP_EXT;
 
-full_page_generation($class_plugins->get_tpl_file(CANS_TPL_PATH, $template_file), $lang['PLUGIN_MYPLUGIN']);
+full_page_generation($class_plugins->get_tpl_file(MYPLUGIN_TPL_PATH, $template_file), $lang['PLUGIN_MYPLUGIN']);
