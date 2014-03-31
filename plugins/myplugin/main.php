@@ -18,6 +18,10 @@ if (strpos($page, '/') !== false || !file_exists(MYPLUGIN_PAGES_PATH . $page . '
 	$page = 'home';
 
 $template_file = "{$page}_body.tpl";
-include MYPLUGIN_PAGES_PATH . $page . '.' . PHP_EXT;
+$template_to_parse = null;
+include CANS_PAGES_PATH . $page . '.' . PHP_EXT;
 
-full_page_generation($class_plugins->get_tpl_file(MYPLUGIN_TPL_PATH, $template_file), $lang['PLUGIN_MYPLUGIN']);
+if ($template_to_parse)
+	full_page_generation($template_to_parse, $lang['PLUGIN_CANS']);
+else
+	full_page_generation($class_plugins->get_tpl_file(CANS_TPL_PATH, $template_file), $lang['PLUGIN_CANS']);
